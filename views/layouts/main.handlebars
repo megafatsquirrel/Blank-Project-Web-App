@@ -7,14 +7,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="/build/css/style.css" />
-    <title>Blank Project</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+    <title>Blank Web App</title>
 </head>
 <body>
-
-    {{{body}}}
-
-    <script type="text/javascript" src="/node_modules/traceur/bin/traceur.js"></script>
-    <script type="text/javascript" src="/build/js/all.main.js"></script>
+    <nav class="navbar header-content">
+        <div class="container">
+            <h1>Blank Web App</h1>
+        </div>
+    </nav>
+    <div class="container">
+        {{{body}}}
+    </div>
+    <footer class="footer footer-content">
+        <div class="container">
+            <p>Footer</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/public/js/all.main.js"></script>
 </body>
 </html>
