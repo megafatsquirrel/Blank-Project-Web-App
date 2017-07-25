@@ -4,9 +4,16 @@ const express = require( 'express' );
 const helmet = require('helmet');
 const hbs = require( 'express-handlebars' );
 const cookieSession = require('cookie-session');
+const https = require('https');
+const fs = require('fs');
 
 const PORT = 8080;
 const HOST = '0.0.0.0';
+
+// const options = {
+//     cert: fs.readFileSync('location of cert'),
+//     key: fs.readFileSync('location of private key')
+// };
 
 const app = express();
 // Set HTTP headers
@@ -32,6 +39,9 @@ app.engine( 'handlebars', hbs( {
 app.set( 'view engine', 'handlebars' );
 app.use( '/public', express.static( __dirname + '/build' ) );
 
+
+app.get('/health-check', (req, res) => res.sendStatus(200));
+
 // Fetch the homepage
 app.get( '/', function ( req, res ) {
     // Update views 
@@ -53,3 +63,5 @@ const server = app.listen( port, function () {
     console.log( 'Started Server: Port %d', server.address().port );
     console.log(`Running on http://${HOST}:${PORT}`);
 } );
+
+//https.createServer(options, app).listen(8443);
